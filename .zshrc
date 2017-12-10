@@ -1,19 +1,7 @@
 # Internal paths
-ANTIGEN_PATH="${HOME}/.local/lib/antigen"
+ANTIGEN_PATH="${HOME}/opt/antigen-git/src/antigen"
 POWERLINE_PATH="$(python3 -c "import site; print(site.getsitepackages()[0])")/powerline"
 
-# Powerline shell theme (use powerlevel9k as fallback)
-SHELL_THEME="powerlevel9k"
-if [ -d "$POWERLINE_PATH" ]; then
-    SHELL_THEME="powerline"
-fi
- 
-# Powerlevel9k configuration
-if [[ "$SHELL_THEME" == "powerlevel9k" ]]; then
-    POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir background_jobs)
-    POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status vcs)
-    POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-fi
 
 # Source custom environment variables (PATH etc.)
 if [ -f "${HOME}/.env" ]; then
@@ -51,19 +39,13 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 # Other ZSH extensions
 autoload -U zmv
 
-# Powerlevel9k fallback theme
-if [[ "$SHELL_THEME" == "powerlevel9k" ]]; then
-    antigen theme bhilburn/powerlevel9k powerlevel9k
-fi
-
 # Apply plugins and themes
 antigen apply 2>&1 > /dev/null
 
 # Powerline shell theme
-if [[ "$SHELL_THEME" == "powerline" ]]; then
-    powerline-daemon -q
-    source "${POWERLINE_PATH}/bindings/zsh/powerline.zsh"
-fi
+powerline-daemon -q
+source "${POWERLINE_PATH}/bindings/zsh/powerline.zsh"
+
 
 # Proper umask (needed for WSL and maybe some other broken systems)
 umask 022

@@ -1,0 +1,17 @@
+[global_config]
+  suppress_multiple_term_dialog = True
+  title_transmit_bg_color = "#0184af"
+  # borderless = True
+  # tab_position = 'hidden'
+[keybindings]
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]

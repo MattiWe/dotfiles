@@ -1,0 +1,83 @@
+out_to_x no
+own_window no
+out_to_console yes
+background no
+max_text_width 0
+format_human_readable yes
+
+# Update interval in seconds
+update_interval 2.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Shortens units to a single character (kiB->k, GiB->G, etc.). Default is off.
+short_units yes
+
+# How strict should if_up be when testing an interface for being up?
+# The value is one of up, link or address, to check for the interface
+# being solely up, being up and having link or being up, having link
+# and an assigned IP address.
+if_up_strictness address
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+# use_spacer should have an argument of left, right, or none
+use_spacer left
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 4
+
+# Stuff after 'TEXT' will be formatted on screen
+TEXT
+# ${time %H:%M:%S}
+# ${time %a %e %B %G}
+# ${uptime}
+# ${cpu}
+# blau 0184af
+# purple 6d01af
+# green 0c9400 - 065900
+# JSON for i3bar
+
+[
+  { "full_text" : "\ue0b0 " , "color" : "\#2c2c2c", "separator": false, "background": "\#065900",
+  "separator_block_width": 0, "align": "right"},
+
+  { "full_text" : "\u2615 ${wireless_essid}  \ue0b1" , "color" : "\#ffffff", "separator": false,
+  "separator_block_width": 0, "background": "\#065900", "align": "right"},
+  { "full_text" : "${execi 1 bash $HOME/.config/i3/ifup.sh}  ", "separator_block_width": 0, "align": "left",
+  "color": "\#aaaaaa",
+  "background": "\#065900", "separator": false },
+
+  { "full_text" : "\ue0b0" , "color" : "\#065900", "separator": false, "background": "\#0184af",
+  "separator_block_width": 0, "align": "right"},
+
+  { "full_text" : "${fs_free /} Free  " , "color" : "\#ffffff", "separator": false,
+  "separator_block_width": 0, "background": "\#0184af" },
+  { "full_text" : "\ue0b1" , "color" : "\#ffffff", "separator": false, "background": "\#0184af",
+  "separator_block_width": 0, "align": "right"},
+  { "full_text" : "\u00a0RAM ${memperc}%  ", "separator_block_width": 0, "align": "left",
+    "color": ${if_match ${memperc}<90}"\#ffffff"${else}"\#ff0000"${endif},
+    "background": "\#0184af", "separator": false },
+
+  { "full_text" : "\ue0b1" , "color" : "\#ffffff", "separator": false, "background": "\#0184af",
+  "separator_block_width": 0, "align": "right"},
+  { "full_text" : "CPU ${cpu}%  ", "separator_block_width": 0, "align": "left",
+    "color": ${if_match ${cpu}>90}"\#ff0000"${else}"\#ffffff"${endif},
+    "background": "\#0184af", "separator": false },
+
+  { "full_text" : "\ue0b1" , "color" : "\#ffffff", "separator": false, "background": "\#0184af",
+  "separator_block_width": 0, "align": "right"},
+  { "full_text" : "\u26a1 ${battery_percent}%\u00a0", "separator_block_width": 0, "align": "left",
+  "color": ${if_match ${battery_percent}<30}"\#ff0000"${else}"\#ffffff"${endif},
+  "background": "\#0184af", "separator": false },
+
+  { "full_text" : "\ue0b0" , "color" : "\#0184af", "separator": false, "background": "\#6d01af",
+  "separator_block_width": 0, "align": "right"},
+  { "full_text" : "${time %e %b} \ue0b1${time %H:%M}  " , "color" : "\#ffffff", "separator": false,
+  "separator_block_width": 0, "background": "\#6d01af", "align": "right"}
+],
