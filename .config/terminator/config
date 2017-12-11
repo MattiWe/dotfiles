@@ -15,3 +15,5 @@
 [plugins]
 [profiles]
   [[default]]
+    use_system_font = False
+    font = DejaVu Sans Mono for Powerline 11

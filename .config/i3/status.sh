@@ -9,4 +9,4 @@ echo '['
 # We send an empty first array of blocks to make the loop simpler:
 echo '[],'
 
-conky -c $HOME/.config/i3/conkyrc
+conky -c $HOME/.config/i3/conkyrc 2>2
