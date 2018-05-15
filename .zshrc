@@ -1,5 +1,5 @@
 # Internal paths
-ANTIGEN_PATH="${HOME}/opt/antigen-git/src/antigen"
+ANTIGEN_PATH="${HOME}/opt/antigen"
 POWERLINE_PATH="$(python3 -c "import site; print(site.getsitepackages()[0])")/powerline"
 
 
@@ -11,6 +11,7 @@ fi
 # Explicitly set LC_* locale to prevent tab completion issues for remote connections
 export LC_CTYPE=${LANG}
 export LC_ALL=${LANG}
+export ANTIGEN_LOG="/home/mike4537/antigen.log"
 
 # Load Antigen package manager
 source "${ANTIGEN_PATH}/antigen.zsh"
