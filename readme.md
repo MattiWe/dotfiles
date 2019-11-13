@@ -6,8 +6,8 @@
 
 4. Install the core softwares:
     ```
-    ~$ sudo apt install terminator zsh 
-    ~$ pip install powerline-status
+    ~$ sudo apt install terminator zsh golang
+    ~$ go get -u github.com/justjanne/powerline-go
     ```
 
 5. ```git clone https://github.com/zsh-users/antigen.git ~/opt/antigen```
