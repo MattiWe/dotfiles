@@ -41,7 +41,7 @@ fi
 # Explicitly set LC_* locale to prevent tab completion issues for remote connections
 export LC_CTYPE=${LANG}
 export LC_ALL=${LANG}
-export ANTIGEN_LOG="/home/mike4537/opt/antigen.log"
+export ANTIGEN_LOG="${ANTIGEN_PATH}/antigen.log"
 
 # Load Antigen package manager
 source "${ANTIGEN_PATH}/antigen.zsh"

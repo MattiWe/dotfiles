@@ -20,6 +20,7 @@
     ~$ rm -rf fonts
     ```
 7. ```chsh -s $(which zsh)```
+8. In vim, run :PluginInstall
 
 
 If using i3, also install conky
